@@ -26,9 +26,7 @@ module.exports.readingDir = readingDir;
 
 
 /* Pasos a seguir:
--obtener ruta y volverla absoluta con resolve()
 -leer el directorio con .readdir
--leer archivo con .readFile
 -detectar si es archivo md con .extname
 -detectar si tiene links 
 -validar links
