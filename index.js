@@ -4,30 +4,32 @@ module.exports = (absolutePath) => {
 
 };
 
-const readingFile = (absolutePath) => {
-  return new Promise((resolve, reject) => { // Función para leer archivo
-    fs.readFile(absolutePath, 'utf8', (err, data) => {
+const readingFile = (path => { // Función para leer archivo
+  let content = new Promise((resolve, reject) => {
+    fs.readFile(path, 'utf8', (err, data) => {
       if (err) {
         reject(err);
       }
-      resolve(console.log(data));
+      resolve(data);
     });
   })
-}
+  return content
+})
 
-function readingDir(absolutePath) { // Función para reconocer directorios
+/*function readingDir(absolutePath) { // Función para reconocer directorios
   return new Promise((resolve, reject) => {
-    fs.stat(absolutePath, function (err, stats) {
+    fs.stat(absolutePath, (err, stats) => {
       if (err) {
-        return reject(err);
+        reject(err);
       }
       resolve(console.log(stats.isDirectory()));
     });
   })
 };
+module.exports.readingDir = readingDir;*/
 
-module.exports.readingDir = readingDir;
 module.exports.readingFile = readingFile;
+
 
 /* Pasos a seguir:
 -obtener links 
