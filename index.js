@@ -1,15 +1,19 @@
 const fs = require('fs');
 
 module.exports = (absolutePath) => {
+
+};
+
+const readingFile = (absolutePath) => {
   return new Promise((resolve, reject) => { // Función para leer archivo
-    fs.readFile(absolutePath, function (err, data) {
+    fs.readFile(absolutePath, 'utf8', (err, data) => {
       if (err) {
-        return reject(err);
+        reject(err);
       }
-      resolve(console.log(data.toString()));
+      resolve(console.log(data));
     });
   })
-};
+}
 
 function readingDir(absolutePath) { // Función para reconocer directorios
   return new Promise((resolve, reject) => {
@@ -23,11 +27,9 @@ function readingDir(absolutePath) { // Función para reconocer directorios
 };
 
 module.exports.readingDir = readingDir;
-
+module.exports.readingFile = readingFile;
 
 /* Pasos a seguir:
--leer el directorio con .readdir
--detectar si es archivo md con .extname
--detectar si tiene links 
+-obtener links 
 -validar links
 */

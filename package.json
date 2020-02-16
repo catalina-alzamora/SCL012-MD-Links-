@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/catalina-alzamora/SCL012-MD-Links-/issues"
   },
-  "homepage": "https://github.com/catalina-alzamora/SCL012-MD-Links-#readme"
+  "homepage": "https://github.com/catalina-alzamora/SCL012-MD-Links-#readme",
+  "dependencies": {
+    "marked": "^0.8.0"
+  }
 }
