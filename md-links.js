@@ -6,7 +6,6 @@ const path = require('path');
 const absolutePath = path.normalize(path.resolve(file)); // normalize() arregla la ruta. resolve() la hace absoluta
 
 
-// mdLinks.readingFile(absolutePath).then(absolutePath => console.log(absolutePath)); // llamando función para leer archivo
 
 function verifyMdFile(absolutePath) { // Función para detectar archivos tipo .md
   if (path.extname(absolutePath) === '.md') {

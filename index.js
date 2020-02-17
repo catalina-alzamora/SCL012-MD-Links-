@@ -17,9 +17,3 @@ const readingFile = (path) => { // Función para leer archivo
 }
 
 module.exports.readingFile = readingFile;
-
-
-/* Pasos a seguir:
--obtener links 
--validar links
-*/
