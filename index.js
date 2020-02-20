@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-module.exports = (absolutePath) => {
+module.exports = () => {
 
 };
 

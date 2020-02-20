@@ -4,5 +4,8 @@
   },
   "parserOptions": {
     "ecmaVersion": 6
+  },
+  "scripts": {
+    "test": "jest"
   }
 }

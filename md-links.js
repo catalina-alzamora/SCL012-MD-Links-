@@ -9,7 +9,7 @@ const absolutePath = path.normalize(path.resolve(file)); // normalize() arregla 
 
 function verifyMdFile(absolutePath) { // Función para detectar archivos tipo .md
   if (path.extname(absolutePath) === '.md') {
-    console.log('archivo corresponde a .md')
+    console.log('Se ha ingresado archivo .md correctamente')
     getLinks();
   } else {
     console.log('error. Ingrese un archivo .md');
@@ -33,8 +33,7 @@ function getLinks() { // Función para obtener arreglo de todos los links
           renderer: renderer
         });
         links = httpLinks(links); // Filtrar por prefijo http
-        links = validLinks(links); // Filtrar por status
-        console.log(links)
+        links = validLinks(links)
         return resolve(links)
       })
       .catch(err => {
@@ -55,19 +54,26 @@ function validLinks(links) { // Función que filtra por estado de links
         }
       })
       .catch(error =>
-        console.log(err.statusText))
+        console.log('Error. Este link no pudo ser leído ' + element.href))
   });
 };
 
 function httpLinks(links) { // Función que filtra por prefijo http de links
   let httpLinks = [];
-  links.map((element) => {
+  links.filter((element) => {
     let prefix = element.href.substring(0, 4);
     if (prefix == 'http') {
-      httpLinks.push(element);
+      return true;
+    } else {
+      return false;
     }
   })
   return httpLinks;
 };
 
 verifyMdFile(absolutePath);
+
+getLinks();
+getLinks().then(printLinks => {
+  console.log(links)
+})
