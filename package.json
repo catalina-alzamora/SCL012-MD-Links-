@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/catalina-alzamora/SCL012-MD-Links-#readme",
   "dependencies": {
+    "chalk": "^3.0.0",
     "marked": "^0.8.0",
     "node-fetch": "^2.6.0"
   },
