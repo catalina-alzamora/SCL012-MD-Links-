@@ -1,10 +1,10 @@
 const mdLinks = require('./index');
 const marked = require('marked');
 const fetch = require('node-fetch');
+const chalk = require('chalk');
 const file = process.argv[2];
 const path = require('path');
 const absolutePath = path.normalize(path.resolve(file)); // normalize() arregla la ruta. resolve() la hace absoluta
-
 
 
 function verifyMdFile(absolutePath) { // Función para detectar archivos tipo .md
@@ -38,7 +38,7 @@ function getLinks() { // Función para obtener arreglo de todos los links
         return resolve(links)
       })
       .catch(err => {
-        reject(console.log(err));
+        //(console.log(err));
       })
   })
   return printLinks
@@ -49,13 +49,13 @@ function validLinks(links) { // Función que filtra por estado de links
     fetch(element.href)
       .then(response => {
         if (response.status === 200) {
-          console.log('(Texto: "' + element.text + '"', 'link: ' + element.href, 'Estado: ' + response.status + ')');
+          console.log(chalk.blue('Texto: ' + element.text + ' '), ('Link: ' + element.href), chalk.green('Estado: ' + response.status + ''));
         } else {
-          console.log('(Texto: "' + element.text + '"', 'link: ' + element.href, 'Estado: ' + response.status + ')');
+          console.log('(Texto: "' + element.text + '"', 'Link: ' + element.href, 'Estado: ' + response.status + ')');
         }
       })
       .catch(error =>
-        console.log(err.statusText))
+        console.log(chalk.red('Link con error ' + element.href)))
   });
 };
 
