@@ -31,7 +31,7 @@ function getLinks() { // Función para obtener arreglo de todos los links
         marked(datos, {
           renderer: renderer
         });
-        //links = httpLinks(links); // Filtrar por prefijo http
+        links = httpLinks(links); // Filtrar por prefijo http
         links = validLinks(links)
         return resolve(links)
       })
@@ -59,20 +59,12 @@ function validLinks(links) { // Función que filtra por estado de links
 
 function httpLinks(links) { // Función que filtra por prefijo http de links
   let httpLinks = [];
-  links.filter((element) => {
+  links.map((element) => {
     let prefix = element.href.substring(0, 4);
     if (prefix == 'http') {
-      return true;
-    } else {
-      return false;
+      httpLinks.push(element);
     }
   })
   return httpLinks;
 };
-
 verifyMdFile(absolutePath);
-
-getLinks();
-getLinks().then(printLinks => {
-  console.log(links)
-})
