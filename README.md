@@ -25,12 +25,10 @@ La lógica de este programa se observa en el siguiente diagrama:
 
 Instalación:
 
-`npm install catalina-alzamora/md-links`
+`npm install catalina-alzamora/SCL012-MD-Links-`
 
-En terminal escribir el comando 'md-links' y la ruta al archivo. (Tiene que ser de tipo .md)
+Usar sólo para archivos de tipo .md
 
-`md-links <path-to-file>`
-
-A continuación se podrá observar cada link con su texto, href y su estado. En caso de error el link aparecerá en rojo. 
+Se podrá observar cada link con su texto, href y su estado. En caso de error el link aparecerá en rojo. 
 
 
